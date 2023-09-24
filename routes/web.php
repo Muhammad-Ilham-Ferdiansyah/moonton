@@ -16,6 +16,16 @@ use Inertia\Inertia;
 |
 */
 
+//memberikan akses menggunakan middleware ke role admin
+// Route::get('admin', function () {
+//     return 'Hi, Admin';
+// })->middleware('role:admin');
+
+// //memberikan akses menggunakan middleware ke role user
+// Route::get('user', function () {
+//     return 'Hi, User';
+// })->middleware('role:user');
+
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -35,4 +45,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
